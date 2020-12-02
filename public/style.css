@@ -20,6 +20,7 @@ html, body {
   h1, h2, h3 {
     font-family: 'Roboto Condensed', sans-serif;
     color: #2a2a2a;
+    margin: 5%;
   }
   
   p, input, li {
@@ -68,7 +69,7 @@ html, body {
   
   h1 {
     flex: 5;
-    text-transform: uppercase;
+    text-transform: 0;
   }
   
   header img {
