@@ -1,4 +1,4 @@
-document.body.addEventListener('/sql', async (e) => {
+document.getElementById("submit").addEventListener('/sql', async (e) => {
     e.preventDefault(); // this stops whatever the browser wanted to do itself.
     const form = $(e.target).serializeArray(); // replacing with 
     // set fave to yes
@@ -10,11 +10,8 @@ document.body.addEventListener('/sql', async (e) => {
       },
       body: JSON.stringify(form)
     })
-      .then((fromServer) => fromServer.json())
-      .then((jsonFromServer) => {
-        // json results of sql search
-        // HERE SEND HTML BACK TO WEBPAGE
-        console.log(jsonFromServer);
+      .then((fromServer) => {
+        console.log(fromServer.json());
       })
       .catch((err) => {
         console.log(err)

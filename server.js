@@ -11,8 +11,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-function querydb(db, str) {
-  let data = null;
+async function querydb(db, str) {
   let sql = `SELECT * FROM mpg`;
   let sql1 = `SELECT * FROM mpg WHERE ((biz_county == "PRINCE GEORGE'S") & (
       (biz_name LIKE "%${str}%") | 
@@ -22,10 +21,14 @@ function querydb(db, str) {
       (biz_web LIKE "%${str}%") | 
       (biz_service LIKE "%${str}%")
       )) LIMIT 10`;
-  db.all(sql1, [],(err, rows) => {
-      data = rows;
-  });
-  return data;
+  return new Promise((res, rej) => {
+    db.all(sql1, [],(err, rows) => {
+      if (err) {
+        rej(console.error(err.message)); 
+      }
+      res(rows);
+    });
+  })
 }
 
 let db = new sqlite3.Database('./sql/data.db', (err) => {
@@ -56,8 +59,9 @@ app.route('/sql')
     
     const data = req.body.search; // request comes from script.js, search string in form
     
-    let query = querydb(db, data);
-    console.log(query)
+    let query = await querydb(db, data);
+    console.log(query[0]);
+    res.json(query);
   });
 
 app.listen(port, () => {
