@@ -22,6 +22,32 @@ html, body {
     color: #2a2a2a;
     margin: 5%;
   }
+
+  .title {
+    background-color: #AED1D6;
+    width: 1440px;
+    height: 231px;
+  }
+
+  .subtitle {
+    background-color: #A0B9BF;
+    width: 1440px;
+    height: 94px;
+    font-family: Varela Round;
+    font-size: 32px;
+    line-height: 41px;
+    width: 912px;
+    text-align: center;
+  }
+
+  .main {
+    color: #47525E;
+    font-family: Varela Round;
+    font-size: 20px;
+    line-height: 27px;
+    width: 1414px;
+    text-align: left;
+  }
   
   p, input, li {
     font-family: 'Roboto Condensed', sans-serif;
