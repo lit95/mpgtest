@@ -5,7 +5,7 @@ Minority Prince George, a webapp for locally owned minority businesses in Prince
 Compatible for iOS version 12+ and Android 10+.
 
 ### Links
-* Heroku instance: 
+* Heroku instance: https://inst377mpg.herokuapp.com/
 * User Manual:
 * Developer Manual: 
 
