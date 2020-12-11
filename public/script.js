@@ -41,10 +41,19 @@ document.getElementById("submit").addEventListener("click", async (e) => {
           for (x of list){
             console.log(x)
             let div = document.createElement("div")
-            let ul = div.appendChild(document.createElement("ul"))
+            div.setAttribute("class","biz")
+            let ul = div.appendChild(document.createElement("ul"));
+            ul.setAttribute("class","biz_name");
             ul.innerHTML = x.biz_name;
-            ul.appendChild(document.createElement("li")).innerHTML = x.biz_addr;
-            ul.appendChild(document.createElement("li")).innerHTML = x.biz_city + " " + x.biz_state + " " + x.biz_zip;
+            
+            let li = document.createElement("li");
+            li.setAttribute("class","address1");
+            ul.appendChild(li).innerHTML = x.biz_addr;
+
+            li = document.createElement("li");
+            li.setAttribute("class","address2");
+            ul.appendChild(li).innerHTML = x.biz_city + " " + x.biz_state + " " + x.biz_zip;
+            
             response.appendChild(div);
           }
         })
