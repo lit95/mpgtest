@@ -14,7 +14,7 @@ const port = process.env.PORT || 3000;
 async function queryall(){
   let sql = `SELECT * FROM mpg WHERE (biz_county == "PRINCE GEORGE'S")`;
   return new Promise((res, rej) => {
-    db.all(sql1, [],(err, rows) => {
+    db.all(sql, [],(err, rows) => {
       if (err) {
         rej(console.error(err.message)); 
       }
@@ -63,8 +63,7 @@ app.use((req, res, next) => {
 app.route('/sql')
   .get(async(req, res) => {
     console.log('GET request detected');
-    console.log('fetch request data', data);
-    res.send(queryall());
+    res.send(await queryall());
   })
   .post(async(req, res) => {
     console.log('POST request detected');

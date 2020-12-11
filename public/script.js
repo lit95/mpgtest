@@ -1,3 +1,5 @@
+// Script for index page
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -45,7 +47,7 @@ document.getElementById("submit").addEventListener("click", async (e) => {
             let ul = div.appendChild(document.createElement("ul"));
             ul.setAttribute("class","biz_name");
             ul.innerHTML = x.biz_name;
-            
+
             let li = document.createElement("li");
             li.setAttribute("class","address1");
             ul.appendChild(li).innerHTML = x.biz_addr;
