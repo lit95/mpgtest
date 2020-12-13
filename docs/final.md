@@ -1,6 +1,6 @@
 # Final Report
 ### Team Members
-Abdulrahman Abdullahi, Jason Choi, Dennis Ihedioha, Brecken Keller, Pong Li
+Abdulrahman Abdullahi, Jason Choi, Dennis Ihedioha, Brecken Keller, Pong Li 
 
 ### Link to App
 
