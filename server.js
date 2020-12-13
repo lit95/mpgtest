@@ -43,7 +43,7 @@ async function querydb(db, str) {
   });
 }
 
-let db = new sqlite3.Database('./sql/data.db', (err) => {
+let db = new sqlite3.Database('./server_files/data.db', (err) => {
   if (err) {
     console.error(err.message);
   }
@@ -68,7 +68,6 @@ app.route('/sql')
   .post(async(req, res) => {
     console.log('POST request detected');
     const data = req.body.name; // request comes from script.js, search string in form
-    console.log(req.body.name)
     let query = await querydb(db, data);
     res.send(query);
   });
