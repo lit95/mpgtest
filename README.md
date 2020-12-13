@@ -6,7 +6,7 @@ Compatible for iOS version 12+ and Android 10+.
 
 ### Links
 * Heroku instance: 
-* User Manual:
-* Developer Manual: 
+* User Manual: https://github.com/BreckenK/INST377MPG/blob/main/docs/user_manual.md
+* Developer Manual: https://github.com/BreckenK/INST377MPG/blob/main/docs/developer_manual.md
 
 ### Developer Manual
