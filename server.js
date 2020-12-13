@@ -11,8 +11,20 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+async function queryall(){
+  let sql = `SELECT * FROM mpg WHERE (biz_county == "PRINCE GEORGE'S")`;
+  return new Promise((res, rej) => {
+    db.all(sql, [],(err, rows) => {
+      if (err) {
+        rej(console.error(err.message)); 
+      }
+      res(rows);
+    });
+  });
+}
+
 async function querydb(db, str) {
-  let sql = `SELECT * FROM mpg`;
+  
   let sql1 = `SELECT * FROM mpg WHERE ((biz_county == "PRINCE GEORGE'S") & (
       (biz_name LIKE "%${str}%") | 
       (biz_addr LIKE "%${str}%") | 
@@ -28,7 +40,7 @@ async function querydb(db, str) {
       }
       res(rows);
     });
-  })
+  });
 }
 
 let db = new sqlite3.Database('./sql/data.db', (err) => {
@@ -51,17 +63,14 @@ app.use((req, res, next) => {
 app.route('/sql')
   .get(async(req, res) => {
     console.log('GET request detected');
-    console.log('fetch request data', data);
+    res.send(await queryall());
   })
   .post(async(req, res) => {
     console.log('POST request detected');
-    console.log('Form data in res.body', req.body);
-    
-    const data = req.body.search; // request comes from script.js, search string in form
-    
+    const data = req.body.name; // request comes from script.js, search string in form
+    console.log(req.body.name)
     let query = await querydb(db, data);
-    console.log(query[0]);
-    res.json(query);
+    res.send(query);
   });
 
 app.listen(port, () => {
