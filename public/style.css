@@ -190,6 +190,7 @@ html, body {
 
   .biz_name {
     font-size:large;
+    font:bold;
     text-align: left;
   }
 
